@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="/javascript/jquery-3.2.1.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    PLAYER: <span id="player"></span>
+    <!-- Don't fire before body loads -->
+    <script>
+      var socket = io("/overlay_info");
+
+      socket.on('update_overlay', function(data) {
+        document.getElementById('player').innerText = data.player;
+      });
+    </script>
+  </body>
+</html>
