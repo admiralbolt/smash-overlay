@@ -36,8 +36,20 @@ export default class Admin extends React.Component {
   render() {
     return (
       <div id="admin" className="admin">
-        <div className="card-panel teal lighten-2">
-          Left Player: <input type="text" name="left_player" id="left_player" onChange={this.update_state} value={this.state.overlay_info.left_player} /> <br />
+        <div className="row">
+          <div className="col s4">
+            <div className="card-panel">
+              <h2 className="card-title">Left Player</h2>
+              <div className="row">
+                <div className="col s2">
+                  <label className="input-label valign-wrapper" htmlFor="left_player">Name</label>
+                </div>
+                <div className="col s10">
+                  <input className="overlay-input" type="text" name="left_player" id="left_player" onChange={this.update_state} value={this.state.overlay_info.left_player} />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="row">
           Left Character: <input type="text" name="left_character" id="left_character" onChange={this.update_state} value={this.state.overlay_info.left_character} /> <br />
