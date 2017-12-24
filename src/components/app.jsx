@@ -1,13 +1,12 @@
 import React from 'react';
 import io from 'socket.io-client';
+import default_data from '../default_data.js';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      overlay_info: {
-        player: 'asdf'
-      },
+      overlay_info: default_data,
       socket: io('/overlay_info')
     };
 

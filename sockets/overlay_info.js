@@ -1,7 +1,8 @@
+var default_data = require('../src/default_data.js');
+
 module.exports = function (io) {
-  var data = {
-    player: "some guy"
-  };
+  // This variable is our entire persistence layer... Basically.
+  var data = default_data;
 
   var overlay_info = io.of('/overlay_info');
 
