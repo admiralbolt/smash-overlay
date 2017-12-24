@@ -62,7 +62,7 @@ export default class Admin extends React.Component {
                   <label className="input-label valign-wrapper" htmlFor="tourney_link">Link</label>
                 </div>
                 <div className="col s9">
-                  <input className="overlay-input" type="number" name="tourney_link" id="tourney_link" onChange={this.update_state} value={this.state.overlay_info.tourney_link} />
+                  <input className="overlay-input" type="text" name="tourney_link" id="tourney_link" onChange={this.update_state} value={this.state.overlay_info.tourney_link} />
                 </div>
               </div>
             </div>
