@@ -24,7 +24,7 @@ export default class MTVMeleeOverlay extends React.Component {
 
   render() {
     return (
-      <div id="contact">
+      <div className="overlay-container">
         Left Player: {this.state.overlay_info.left_player} <br />
         Left Character: {this.state.overlay_info.left_character} <br />
         Left Score: {this.state.overlay_info.left_score} <br />
