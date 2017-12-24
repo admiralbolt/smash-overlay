@@ -1,19 +1,23 @@
 var path = require('path');
 var bodyParser = require('body-parser');
 var express = require('express');
-var routes = require('./routes');
-var hbs = require('hbs');
+var webpack = require('webpack');
+var config = require('./webpack.config.dev.js');
 
 var app = express();
+var compiler = webpack(config);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+app.use(require('webpack-dev-middleware')(compiler, {
+  noInfo: true,
+  publicPath: config.output.publicPath
+}));
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', routes);
+app.use(require('webpack-hot-middleware')(compiler));
+
+app.use('/public', express.static('public'));
 
 app.get('*', function(req, res) {
   res.sendFile(path.resolve(__dirname, 'index.html'));
