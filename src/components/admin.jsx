@@ -6,8 +6,8 @@ export default class Admin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      player: "some guy",
-      socket: io("/overlay_info")
+      overlay_info: props.overlay_info,
+      socket: io('/overlay_info')
     };
 
     this.update_info = this.update_info.bind(this);
@@ -17,31 +17,27 @@ export default class Admin extends React.Component {
   componentDidMount() {
     var self = this;
     this.state.socket.on('update_overlay', function(data) {
-      self.setState({player: data.player});
+      self.setState({overlay_info: data});
     });
   }
 
   update_state(e) {
-    let update = {};
+    let update = {...this.state.overlay_info};
     update[e.target.name] = e.target.value;
-    this.setState(update);
+    this.setState({
+      overlay_info: update
+    });
   }
 
   update_info(e) {
-    const data = {
-      "player": this.state.player
-    };
-    this.state.socket.emit("update_overlay", data);
+    this.props.update_callback(this.state.overlay_info);
   }
 
-  componentDidMount() {
-    browserHistory.push('/');
-  }
   render() {
     return (
       <div id="home">
         Player:
-        <input type="text" name="player" id="player" onChange={this.update_state} value={this.state.player} />
+        <input type="text" name="player" id="player" onChange={this.update_state} value={this.state.overlay_info.player} />
         <button id="send_update" name="send_update" onClick={this.update_info}>Send Update</button>
       </div>
     );

@@ -6,20 +6,22 @@ export default class MTVMeleeOverlay extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      player: "some guy",
+      overlay_info: props.overlay_info,
       socket: io("/overlay_info")
     };
+  }
 
+  componentDidMount() {
     var self = this;
     this.state.socket.on('update_overlay', function(data) {
-      self.setState({player: data.player});
+      self.setState({overlay_info: data});
     });
   }
 
   render() {
     return (
       <div id="contact">
-        Player: {this.state.player}
+        Player: {this.state.overlay_info.player}
       </div>
     );
   }

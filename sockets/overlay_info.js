@@ -1,6 +1,6 @@
 module.exports = function (io) {
   var data = {
-    
+    player: "some guy"
   };
 
   var overlay_info = io.of('/overlay_info');
