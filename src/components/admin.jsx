@@ -1,6 +1,7 @@
 import React from "react";
 import { browserHistory } from 'react-router';
 import io from 'socket.io-client';
+require('../styles/admin.scss');
 
 export default class Admin extends React.Component {
   constructor(props) {

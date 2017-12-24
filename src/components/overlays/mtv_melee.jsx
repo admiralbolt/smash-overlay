@@ -1,5 +1,7 @@
 import React from "react";
 import io from 'socket.io-client';
+require('../../styles/overlay_base.scss');
+require('../../styles/mtv_melee.scss');
 
 
 export default class MTVMeleeOverlay extends React.Component {
