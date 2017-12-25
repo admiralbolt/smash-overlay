@@ -25,17 +25,64 @@ export default class MTVMeleeOverlay extends React.Component {
   render() {
     return (
       <div className="overlay-container">
-        Left Player: {this.state.overlay_info.left_player} <br />
-        Left Character: {this.state.overlay_info.left_character} <br />
-        Left Score: {this.state.overlay_info.left_score} <br />
-        <br />
-        Right Player: {this.state.overlay_info.right_player} <br />
-        Right Character: {this.state.overlay_info.right_character} <br />
-        Right Score: {this.state.overlay_info.right_score} <br />
-        <br />
-        Tourney Name: {this.state.overlay_info.tourney_name} <br />
-        Tourney Round: {this.state.overlay_info.tourney_round} <br />
-        Tourney Link: {this.state.overlay_info.tourney_link} <br />
+        <div className="row">
+          <div className="left-side col s9">
+
+            <div className="info-rectangle-bottom left-player">
+              <div className="row info-content valign-wrapper">
+                <div className="col s3 left-align">
+                  {this.state.overlay_info.left_character}
+                </div>
+                <div className="col s6 center-align">
+                  {this.state.overlay_info.left_player}
+                </div>
+                <div className="col s3 right-align">
+                  {this.state.overlay_info.left_score}
+                </div>
+              </div>
+            </div>
+
+            <div className="info-rectangle-bottom right-player">
+              <div className="row info-content valign-wrapper">
+                <div className="col s3 left-align">
+                  {this.state.overlay_info.right_score}
+                </div>
+                <div className="col s6 center-align">
+                  {this.state.overlay_info.right_player}
+                </div>
+                <div className="col s3 right-align">
+                  {this.state.overlay_info.right_character}
+                </div>
+              </div>
+            </div>
+
+            <div className="info-rectangle-top tourney-name">
+              <div className="row info-content-top valign-wrapper center-align">
+                <div className="col s12">{this.state.overlay_info.tourney_name}</div>
+              </div>
+            </div>
+
+            <div className="info-rectangle-top tourney-round">
+              <div className="row info-content-top valign-wrapper center-align">
+                <div className="col s12">{this.state.overlay_info.tourney_round}</div>
+              </div>
+            </div>
+          </div>
+          <div className="right-side col s3 center-align">
+            <div className="camera">
+
+            </div>
+            <div className="camera">
+
+            </div>
+            <div className="misc">
+
+              <div className="tourney-link center-align">
+                {this.state.overlay_info.tourney_link}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

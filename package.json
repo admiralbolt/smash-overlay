@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "A smash stream overlay for MTV Melee using React & sockets.",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --hot --inline",
     "start": "node server.js"
   },
   "main": "server.js",

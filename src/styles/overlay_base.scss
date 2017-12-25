@@ -1,8 +1,8 @@
-@import "global";
+$max_height: 1070px;
 
 .overlay-container {
   width: 1920px;
   height: 1080px;
-  border: 10px solid yellow;
+  border: 5px solid #222222;
   background-color: cyan;
 }

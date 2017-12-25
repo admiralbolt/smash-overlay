@@ -23,12 +23,13 @@ app.get('*', function(req, res) {
   res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
+console.log("hello...?");
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 require('./sockets')(io);
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 14444);
 
-var server = http.listen(app.get('port'), function() {
-  console.log('Express server listening on port ' + server.address().port);
+var server = http.listen(app.get('port'), '127.0.0.1', function() {
+  console.log(server.address());
 });
