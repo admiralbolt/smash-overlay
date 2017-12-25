@@ -1,5 +1,6 @@
 import React from "react";
 import io from 'socket.io-client';
+import materialize from 'materialize-css';
 require('../styles/admin.scss');
 
 export default class Admin extends React.Component {
@@ -7,7 +8,8 @@ export default class Admin extends React.Component {
     super(props);
     this.state = {
       overlay_info: props.overlay_info,
-      socket: io('/overlay_info')
+      socket: io('/overlay_info'),
+      has_init: false
     };
 
     this.key_press = this.key_press.bind(this);
@@ -18,7 +20,13 @@ export default class Admin extends React.Component {
   componentDidMount() {
     var self = this;
     this.state.socket.on('update_overlay', function(data) {
-      self.setState({overlay_info: data});
+      self.setState({overlay_info: data}, () => {
+        if (self.state.has_init) {
+          materialize.toast("Stream updated.", 1000);
+        } else {
+          self.setState({"has_init": true});
+        }
+      });
     });
   }
 
