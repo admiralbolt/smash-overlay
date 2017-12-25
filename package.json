@@ -1,18 +1,15 @@
 {
-  "name": "about-me",
+  "name": "smash-overlay",
   "version": "1.0.0",
-  "description": "A simple two-page website using React",
+  "description": "A smash stream overlay for MTV Melee using React & sockets.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --hot --inline",
     "start": "node server.js"
   },
   "main": "server.js",
   "engines": {
     "node": ">=7.5.0"
   },
-  "author": "krithix",
-  "license": "ISC",
+  "author": "admirallightningbolt",
   "dependencies": {
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
