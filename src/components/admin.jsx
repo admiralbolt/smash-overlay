@@ -1,5 +1,4 @@
 import React from "react";
-import { browserHistory } from 'react-router';
 import io from 'socket.io-client';
 require('../styles/admin.scss');
 
@@ -11,6 +10,7 @@ export default class Admin extends React.Component {
       socket: io('/overlay_info')
     };
 
+    this.key_press = this.key_press.bind(this);
     this.update_info = this.update_info.bind(this);
     this.update_state = this.update_state.bind(this);
   }
@@ -34,6 +34,13 @@ export default class Admin extends React.Component {
     this.props.update_callback(this.state.overlay_info);
   }
 
+  key_press(e) {
+    if (e.key === "Enter") {
+      e.target.blur();
+      this.update_info(e);
+    }
+  }
+
   render() {
     return (
       <div id="admin" className="admin">
@@ -47,7 +54,7 @@ export default class Admin extends React.Component {
                   <label className="input-label valign-wrapper" htmlFor="tourney_name">Name</label>
                 </div>
                 <div className="col s9">
-                  <input className="overlay-input" type="text" name="tourney_name" id="tourney_name" onChange={this.update_state} value={this.state.overlay_info.tourney_name} />
+                  <input className="overlay-input" type="text" name="tourney_name" id="tourney_name" onKeyPress={this.key_press} onChange={this.update_state} value={this.state.overlay_info.tourney_name} />
                 </div>
               </div>
               <div className="row">
@@ -55,7 +62,7 @@ export default class Admin extends React.Component {
                   <label className="input-label valign-wrapper" htmlFor="tourney_round">Round</label>
                 </div>
                 <div className="col s9">
-                  <input className="overlay-input" type="text" name="tourney_round" id="tourney_round" onChange={this.update_state} value={this.state.overlay_info.tourney_round} />
+                  <input className="overlay-input" type="text" name="tourney_round" id="tourney_round" onKeyPress={this.key_press} onChange={this.update_state} value={this.state.overlay_info.tourney_round} />
                 </div>
               </div>
               <div className="row">
@@ -63,7 +70,7 @@ export default class Admin extends React.Component {
                   <label className="input-label valign-wrapper" htmlFor="tourney_link">Link</label>
                 </div>
                 <div className="col s9">
-                  <input className="overlay-input" type="text" name="tourney_link" id="tourney_link" onChange={this.update_state} value={this.state.overlay_info.tourney_link} />
+                  <input className="overlay-input" type="text" name="tourney_link" id="tourney_link" onKeyPress={this.key_press} onChange={this.update_state} value={this.state.overlay_info.tourney_link} />
                 </div>
               </div>
             </div>
@@ -78,7 +85,7 @@ export default class Admin extends React.Component {
                   <label className="input-label valign-wrapper" htmlFor="left_player">Name</label>
                 </div>
                 <div className="col s9">
-                  <input className="overlay-input" type="text" name="left_player" id="left_player" onChange={this.update_state} value={this.state.overlay_info.left_player} />
+                  <input className="overlay-input" type="text" name="left_player" id="left_player" onKeyPress={this.key_press} onChange={this.update_state} value={this.state.overlay_info.left_player} />
                 </div>
               </div>
               <div className="row">
@@ -86,7 +93,7 @@ export default class Admin extends React.Component {
                   <label className="input-label valign-wrapper" htmlFor="left_character">Character</label>
                 </div>
                 <div className="col s9">
-                  <input className="overlay-input" type="text" name="left_character" id="left_character" onChange={this.update_state} value={this.state.overlay_info.left_character} />
+                  <input className="overlay-input" type="text" name="left_character" id="left_character" onKeyPress={this.key_press} onChange={this.update_state} value={this.state.overlay_info.left_character} />
                 </div>
               </div>
               <div className="row">
@@ -94,7 +101,7 @@ export default class Admin extends React.Component {
                   <label className="input-label valign-wrapper" htmlFor="left_score">Score</label>
                 </div>
                 <div className="col s9">
-                  <input className="overlay-input" type="number" name="left_score" id="left_score" onChange={this.update_state} value={this.state.overlay_info.left_score} />
+                  <input className="overlay-input" type="number" name="left_score" id="left_score" onKeyPress={this.key_press} onChange={this.update_state} value={this.state.overlay_info.left_score} />
                 </div>
               </div>
             </div>
@@ -109,7 +116,7 @@ export default class Admin extends React.Component {
                   <label className="input-label valign-wrapper" htmlFor="right_player">Name</label>
                 </div>
                 <div className="col s9">
-                  <input className="overlay-input" type="text" name="right_player" id="right_player" onChange={this.update_state} value={this.state.overlay_info.right_player} />
+                  <input className="overlay-input" type="text" name="right_player" id="right_player" onKeyPress={this.key_press} onChange={this.update_state} value={this.state.overlay_info.right_player} />
                 </div>
               </div>
               <div className="row">
@@ -117,7 +124,7 @@ export default class Admin extends React.Component {
                   <label className="input-label valign-wrapper" htmlFor="right_character">Character</label>
                 </div>
                 <div className="col s9">
-                  <input className="overlay-input" type="text" name="right_character" id="right_character" onChange={this.update_state} value={this.state.overlay_info.right_character} />
+                  <input className="overlay-input" type="text" name="right_character" id="right_character" onKeyPress={this.key_press} onChange={this.update_state} value={this.state.overlay_info.right_character} />
                 </div>
               </div>
               <div className="row">
@@ -125,7 +132,7 @@ export default class Admin extends React.Component {
                   <label className="input-label valign-wrapper" htmlFor="right_score">Score</label>
                 </div>
                 <div className="col s9">
-                  <input className="overlay-input" type="number" name="right_score" id="right_score" onChange={this.update_state} value={this.state.overlay_info.right_score} />
+                  <input className="overlay-input" type="number" name="right_score" id="right_score" onKeyPress={this.key_press} onChange={this.update_state} value={this.state.overlay_info.right_score} />
                 </div>
               </div>
             </div>
