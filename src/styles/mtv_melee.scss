@@ -2,6 +2,7 @@
 @import "global";
 
 $info_height: 60px;
+$camera_name_height: 34px;
 $cut_width: 50px;
 $header_margin: 216px;
 $background: #333333;
@@ -31,6 +32,22 @@ $background: #333333;
   width: 500px;
   height: 0;
   border-top: $info_height solid $background;
+}
+
+.info-rectangle-player {
+  left: 114px; // Camera width is 449px
+  bottom: -5px;
+  position: absolute;
+  width: 200px;
+  height: 0px;
+  border-bottom: $camera_name_height solid $background;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+}
+
+.info-rectangle-player > .row {
+  height: $camera_name_height;
+  color: white;
 }
 
 .info-content {
@@ -76,6 +93,7 @@ $background: #333333;
   padding: 5px;
   margin: 10px auto;
   background-color: white;
+  position: relative;
 }
 
 .tourney-link {

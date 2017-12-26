@@ -71,9 +71,19 @@ export default class MTVMeleeOverlay extends React.Component {
           <div className="right-side col s3 center-align">
             <div className="camera">
 
+              <div className="info-rectangle-player">
+                <div className="row valign-wrapper">
+                  <div className="col s12 center-align">{this.state.overlay_info.left_player}</div>
+                </div>
+              </div>
             </div>
             <div className="camera">
 
+              <div className="info-rectangle-player">
+                <div className="row valign-wrapper">
+                  <div className="col s12 center-align">{this.state.overlay_info.right_player}</div>
+                </div>
+              </div>
             </div>
             <div className="misc">
 
