@@ -7,6 +7,7 @@ require('../styles/admin.scss');
 export default class Admin extends React.Component {
   constructor(props) {
     super(props);
+    console.log(props.overlay_info);
     this.state = {
       overlay_info: props.overlay_info,
       socket: io('/overlay_info'),
@@ -114,7 +115,7 @@ export default class Admin extends React.Component {
                   <label className="input-label valign-wrapper" htmlFor="left_character">Character</label>
                 </div>
                 <div className="col s9">
-                  <CharacterSelect onChange={this.character_change} stateName="left_character"/>
+                  <CharacterSelect onChange={this.character_change} stateName="left_character" value={this.state.overlay_info.left_character} />
                 </div>
               </div>
               <div className="row">
@@ -145,7 +146,7 @@ export default class Admin extends React.Component {
                   <label className="input-label valign-wrapper" htmlFor="right_character">Character</label>
                 </div>
                 <div className="col s9">
-                  <CharacterSelect onChange={this.character_change} stateName="right_character"/>
+                  <CharacterSelect onChange={this.character_change} stateName="right_character" value={this.state.overlay_info.right_character} />
                 </div>
               </div>
               <div className="row">

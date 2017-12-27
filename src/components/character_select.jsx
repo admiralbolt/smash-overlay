@@ -1,21 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import materialize from 'materialize-css';
-import {Input, Row} from 'react-materialize';
+import {Col, Input, Row} from 'react-materialize';
 import character_data from '../character_data';
+require('../styles/character_select.scss');
 
 
 export default class CharacterSelect extends React.Component {
 
   constructor(props) {
     super(props);
+    // props.value will be a full image path, so we need to parse the
+    // character and color values out of it.
+    console.log(props);
+    const character = props.value.split("/")[4];
+    const color = props.value.split("/")[5].split(".")[0].substr(character.length);
     this.state = {
-      "character": "Bowser",
-      "color": "Neutral"
+      "character": character,
+      "color": color,
+      "icon_path": "/public/images/character_icons/" + character + "/" + character + color + ".png"
     };
 
+    this.calculate_icon_path = this.calculate_icon_path.bind(this);
     this.update_character = this.update_character.bind(this);
     this.update_color = this.update_color.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      "icon_path": this.calculate_icon_path(this.state.character, this.state.color)
+    });
   }
 
   calculate_icon_path(character, color) {
@@ -25,10 +39,11 @@ export default class CharacterSelect extends React.Component {
   update_character(e) {
     this.setState({
       "character": e.target.value,
-      "color": "Neutral"
+      "color": "Original"
     }, () => {
+      this.state.icon_path = this.calculate_icon_path(this.state.character, this.state.color);
       this.props.onChange(
-        this.calculate_icon_path(this.state.character, this.state.color),
+        this.state.icon_path,
         this.props.stateName
       );
     });
@@ -38,8 +53,9 @@ export default class CharacterSelect extends React.Component {
     this.setState({
       "color": e.target.value
     }, () => {
+      this.state.icon_path = this.calculate_icon_path(this.state.character, this.state.color);
       this.props.onChange(
-        this.calculate_icon_path(this.state.character, this.state.color),
+        this.state.icon_path,
         this.props.stateName
       );
     });
@@ -64,7 +80,12 @@ export default class CharacterSelect extends React.Component {
           </Input>
         </Row>
         <Row>
-          <Input onChange={this.update_color} s={12} type="select" label="Color Select" defaultValue='Neutral'>
+          <Col s={2}>
+            <div className="valign-wrapper center-align selected-icon-wrapper">
+              <img className="selected-icon" src={this.state.icon_path} />
+            </div>
+          </Col>
+          <Input onChange={this.update_color} s={10} type="select" label="Color Select" defaultValue='Neutral'>
             {characterColors}
           </Input>
         </Row>
