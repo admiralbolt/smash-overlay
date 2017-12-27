@@ -7,12 +7,10 @@ require('../../styles/mtv_melee.scss');
 export default class MTVMeleeOverlay extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       overlay_info: props.overlay_info,
       socket: io("/overlay_info")
     };
-    console.log(this.state.overlay_info.left_player);
   }
 
   componentDidMount() {
@@ -31,7 +29,7 @@ export default class MTVMeleeOverlay extends React.Component {
             <div className="info-rectangle-bottom left-player">
               <div className="row info-content valign-wrapper">
                 <div className="col s3 left-align">
-                  {this.state.overlay_info.left_character}
+                  <img src={this.state.overlay_info.left_character} />
                 </div>
                 <div className="col s6 center-align">
                   {this.state.overlay_info.left_player}
@@ -51,7 +49,7 @@ export default class MTVMeleeOverlay extends React.Component {
                   {this.state.overlay_info.right_player}
                 </div>
                 <div className="col s3 right-align">
-                  {this.state.overlay_info.right_character}
+                  <img src={this.state.overlay_info.right_character} />
                 </div>
               </div>
             </div>

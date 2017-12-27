@@ -1,6 +1,7 @@
 import React from "react";
 import io from 'socket.io-client';
 import materialize from 'materialize-css';
+import CharacterSelect from './character_select.jsx';
 require('../styles/admin.scss');
 
 export default class Admin extends React.Component {
@@ -12,6 +13,7 @@ export default class Admin extends React.Component {
       has_init: false
     };
 
+    this.character_change = this.character_change.bind(this);
     this.key_press = this.key_press.bind(this);
     this.update_info = this.update_info.bind(this);
     this.update_state = this.update_state.bind(this);
@@ -28,6 +30,17 @@ export default class Admin extends React.Component {
         }
       });
     });
+  }
+
+  character_change(icon_path, state_name) {
+    // Simulate update state event.
+    const event = {
+      target: {
+        name: state_name,
+        value: icon_path
+      }
+    };
+    this.update_state(event);
   }
 
   update_state(e) {
@@ -101,7 +114,7 @@ export default class Admin extends React.Component {
                   <label className="input-label valign-wrapper" htmlFor="left_character">Character</label>
                 </div>
                 <div className="col s9">
-                  <input className="overlay-input" type="text" name="left_character" id="left_character" onKeyPress={this.key_press} onChange={this.update_state} value={this.state.overlay_info.left_character} />
+                  <CharacterSelect onChange={this.character_change} stateName="left_character"/>
                 </div>
               </div>
               <div className="row">
@@ -132,7 +145,7 @@ export default class Admin extends React.Component {
                   <label className="input-label valign-wrapper" htmlFor="right_character">Character</label>
                 </div>
                 <div className="col s9">
-                  <input className="overlay-input" type="text" name="right_character" id="right_character" onKeyPress={this.key_press} onChange={this.update_state} value={this.state.overlay_info.right_character} />
+                  <CharacterSelect onChange={this.character_change} stateName="right_character"/>
                 </div>
               </div>
               <div className="row">
@@ -149,6 +162,11 @@ export default class Admin extends React.Component {
         <div className="row">
           <div className="col s12">
             <button className="waves-effect waves-light btn update-button" id="send_update" name="send_update" onClick={this.update_info}>Send Overlay Update</button>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col s12">
+
           </div>
         </div>
       </div>

@@ -24,7 +24,6 @@ export default class App extends React.Component {
     this.setState({
       overlay_info: info
     }, () => {
-      console.log(this.state);
       this.state.socket.emit('update_overlay', this.state.overlay_info);
     });
   }
