@@ -49,7 +49,7 @@ export default class MTVMeleeOverlay extends React.Component {
                   {this.state.overlay_info.right_player}
                 </div>
                 <div className="col s3 right-align">
-                  <img src={this.state.overlay_info.right_character} />
+                  <img className="reverse" src={this.state.overlay_info.right_character} />
                 </div>
               </div>
             </div>
