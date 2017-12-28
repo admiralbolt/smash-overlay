@@ -69,7 +69,10 @@ export default class CharacterSelect extends React.Component {
   render() {
     var characterNames = Object.keys(character_data).map((key) => {
       const item = character_data[key];
-      return <option key={key} value={key}>{item.display}</option>;
+      return <option className="left"
+                     data-icon={this.calculate_icon_path(key, "Original")}
+                     key={key}
+                     value={key}>{item.display}</option>;
     });
     var characterColors = character_data[this.state.character].colors.map((color, index) => {
       return <option className="left"
