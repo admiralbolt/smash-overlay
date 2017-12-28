@@ -12,7 +12,6 @@ export default class CharacterSelect extends React.Component {
     super(props);
     // props.value will be a full image path, so we need to parse the
     // character and color values out of it.
-    console.log(props);
     const character = props.value.split("/")[4];
     const color = props.value.split("/")[5].split(".")[0].substr(character.length);
     this.state = {
@@ -24,6 +23,12 @@ export default class CharacterSelect extends React.Component {
     this.calculate_icon_path = this.calculate_icon_path.bind(this);
     this.update_character = this.update_character.bind(this);
     this.update_color = this.update_color.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const character = nextProps.value.split("/")[4];
+    const color = nextProps.value.split("/")[5].split(".")[0].substr(character.length);
+    this.setState({"character": character, "color": color, "icon_path": this.calculate_icon_path(character, color)});
   }
 
   componentDidMount() {
@@ -75,7 +80,7 @@ export default class CharacterSelect extends React.Component {
     return (
       <div className="character-selector">
         <Row>
-          <Input onChange={this.update_character} s={12} type="select" label="Character Select" defaultValue='Bowser'>
+          <Input onChange={this.update_character} s={12} type="select" label="Character Select" value={this.state.character}>
             {characterNames}
           </Input>
         </Row>
@@ -85,7 +90,7 @@ export default class CharacterSelect extends React.Component {
               <img className="selected-icon" src={this.state.icon_path} />
             </div>
           </Col>
-          <Input onChange={this.update_color} s={10} type="select" label="Color Select" defaultValue='Neutral'>
+          <Input onChange={this.update_color} s={10} type="select" label="Color Select" value={this.state.color}>
             {characterColors}
           </Input>
         </Row>

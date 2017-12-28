@@ -7,7 +7,6 @@ require('../styles/admin.scss');
 export default class Admin extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.overlay_info);
     this.state = {
       overlay_info: props.overlay_info,
       socket: io('/overlay_info'),
