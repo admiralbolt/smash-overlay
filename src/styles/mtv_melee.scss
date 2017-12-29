@@ -7,10 +7,6 @@ $cut_width: 50px;
 $header_margin: 216px;
 $background: #333333;
 
-.overlay-container {
-  background-color: rgba(0, 0, 0, 0);
-}
-
 .left-side {
   height: $max_height !important;
   position: relative;
@@ -20,7 +16,7 @@ $background: #333333;
   height: $max_height !important;
   position: relative;
   background-color: transparent;
-  border-left: 5px solid $background;
+  border-left: 5px solid $border_dark;
   padding: 0px !important;
 }
 
@@ -97,7 +93,7 @@ $background: #333333;
   padding: 5px;
   margin: 0px;
   position: relative;
-  border-bottom: 5px solid $background;
+  border-bottom: 5px solid $border_dark;
 }
 
 .misc {

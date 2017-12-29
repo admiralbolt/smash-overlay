@@ -1,8 +1,9 @@
 $max_height: 1070px;
+$border_dark: #262626;
 
 .overlay-container {
   width: 1920px;
   height: 1080px;
-  border: 5px solid #222222;
-  background-color: cyan;
+  border: 5px solid $border_dark;
+  background-color: transparent;
 }

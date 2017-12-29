@@ -1,8 +1,11 @@
+// If a dev flag is passed use the dev config.
+const config_path = (process.argv.length >= 3 && process.argv[2].includes('dev')) ? './webpack.config.dev.js' : './webpack.config.js';
+
 var path = require('path');
 var bodyParser = require('body-parser');
 var express = require('express');
 var webpack = require('webpack');
-var config = require('./webpack.config.dev.js');
+var config = require(config_path);
 
 var app = express();
 var compiler = webpack(config);
