@@ -1,6 +1,7 @@
 module.exports = {
   "Bowser": {
     "display": "Bowser",
+    "facing": "right",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Black", "value": "Black"},
@@ -10,6 +11,7 @@ module.exports = {
   },
   "CaptainFalcon": {
     "display": "Captain Falcon",
+    "facing": "left",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Black", "value": "Dark"},
@@ -21,6 +23,7 @@ module.exports = {
   },
   "DonkeyKong": {
     "display": "Donkey Kong",
+    "facing": "left",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -31,6 +34,7 @@ module.exports = {
   },
   "DrMario": {
     "display": "Dr Mario",
+    "facing": "right",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Black", "value": "Black"},
@@ -41,6 +45,7 @@ module.exports = {
   },
   "Falco": {
     "display": "Falco",
+    "facing": "left",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -50,6 +55,7 @@ module.exports = {
   },
   "Fox": {
     "display": "Fox",
+    "facing": "right",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -59,6 +65,7 @@ module.exports = {
   },
   "GameNWatch": {
     "display": "Mr. Game & Watch",
+    "facing": "right",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -68,6 +75,7 @@ module.exports = {
   },
   "Ganondorf": {
     "display": "Ganondorf",
+    "facing": "right",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -78,6 +86,7 @@ module.exports = {
   },
   "IceClimbers": {
     "display": "Ice Climbers",
+    "facing": "left",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Green", "value": "Green"},
@@ -87,6 +96,7 @@ module.exports = {
   },
   "Jigglypuff": {
     "display": "Jigglypuff",
+    "facing": "right",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -97,6 +107,7 @@ module.exports = {
   },
   "Kirby": {
     "display": "Kirby",
+    "facing": "right",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -108,6 +119,7 @@ module.exports = {
   },
   "Link": {
     "display": "Link",
+    "facing": "right",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Black", "value": "Black"},
@@ -118,6 +130,7 @@ module.exports = {
   },
   "Luigi": {
     "display": "Luigi",
+    "facing": "right",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -127,6 +140,7 @@ module.exports = {
   },
   "Mario": {
     "display": "Mario",
+    "facing": "left",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Black", "value": "Black"},
@@ -137,6 +151,7 @@ module.exports = {
   },
   "Marth": {
     "display": "Marth",
+    "facing": "right",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Black", "value": "Dark"},
@@ -147,6 +162,7 @@ module.exports = {
   },
   "Mewtwo": {
     "display": "Mewtwo",
+    "facing": "left",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -156,6 +172,7 @@ module.exports = {
   },
   "Ness": {
     "display": "Ness",
+    "facing": "right",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -165,6 +182,7 @@ module.exports = {
   },
   "Peach": {
     "display": "Peach",
+    "facing": "right",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -175,6 +193,7 @@ module.exports = {
   },
   "Pichu": {
     "display": "Pichu",
+    "facing": "right",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -184,6 +203,7 @@ module.exports = {
   },
   "Pikachu": {
     "display": "Pikachu",
+    "facing": "left",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -193,6 +213,7 @@ module.exports = {
   },
   "Roy": {
     "display": "Roy",
+    "facing": "left",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -203,6 +224,7 @@ module.exports = {
   },
   "Samus": {
     "display": "Samus",
+    "facing": "left",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Brown", "value": "Dark"},
@@ -213,6 +235,7 @@ module.exports = {
   },
   "Sheik": {
     "display": "Sheik",
+    "facing": "left",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -223,6 +246,7 @@ module.exports = {
   },
   "Yoshi": {
     "display": "Yoshi",
+    "facing": "left",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},
@@ -234,6 +258,7 @@ module.exports = {
   },
   "YoungLink": {
     "display": "Young Link",
+    "facing": "left",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Black", "value": "Black"},
@@ -244,6 +269,7 @@ module.exports = {
   },
   "Zelda": {
     "display": "Zelda",
+    "facing": "left",
     "colors": [
       {"display": "Neutral", "value": "Original"},
       {"display": "Blue", "value": "Blue"},

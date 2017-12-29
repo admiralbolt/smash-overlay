@@ -1,5 +1,6 @@
 import React from 'react';
 import io from 'socket.io-client';
+import character_data from '../../character_data';
 require('../../styles/overlay_base.scss');
 require('../../styles/mtv_melee.scss');
 
@@ -21,6 +22,12 @@ export default class MTVMeleeOverlay extends React.Component {
   }
 
   render() {
+    const left_character = this.state.overlay_info.left_character.split("/")[4];
+    const right_character = this.state.overlay_info.right_character.split("/")[4];
+    const left_facing = character_data[left_character].facing;
+    const right_facing = character_data[right_character].facing;
+    console.log("left_facing: " + left_facing + ", right_facing: " + right_facing);
+
     return (
       <div className="overlay-container">
         <div className="row">
@@ -28,8 +35,8 @@ export default class MTVMeleeOverlay extends React.Component {
 
             <div className="info-rectangle-bottom left-player">
               <div className="row info-content valign-wrapper">
-                <div className="col s3 left-align">
-                  <img src={this.state.overlay_info.left_character} />
+                <div key="something_unique" className="col s3 left-align">
+                  <img className={(left_facing == 'left') ? 'reverse' : ''} src={this.state.overlay_info.left_character} />
                 </div>
                 <div className="col s6 center-align">
                   {this.state.overlay_info.left_player}
@@ -49,7 +56,7 @@ export default class MTVMeleeOverlay extends React.Component {
                   {this.state.overlay_info.right_player}
                 </div>
                 <div className="col s3 right-align">
-                  <img className="reverse" src={this.state.overlay_info.right_character} />
+                  <img className={(right_facing == 'right') ? 'reverse' : ''} src={this.state.overlay_info.right_character} />
                 </div>
               </div>
             </div>

@@ -7,17 +7,13 @@ $cut_width: 50px;
 $header_margin: 216px;
 $background: #333333;
 
+/**
+ * Left side has the main game overlay.
+ */
+
 .left-side {
   height: $max_height !important;
   position: relative;
-}
-
-.right-side {
-  height: $max_height !important;
-  position: relative;
-  background-color: transparent;
-  border-left: 5px solid $border_dark;
-  padding: 0px !important;
 }
 
 .info-rectangle-bottom {
@@ -25,6 +21,7 @@ $background: #333333;
   width: 500px;
   height: 0;
   border-bottom: $info_height solid $background;
+  font-size: 18px;
 }
 
 .info-rectangle-top {
@@ -32,22 +29,7 @@ $background: #333333;
   width: 500px;
   height: 0;
   border-top: $info_height solid $background;
-}
-
-.info-rectangle-player {
-  left: 136px; // Camera width is 472px
-  bottom: 0px;
-  position: absolute;
-  width: 200px;
-  height: 0px;
-  border-bottom: $camera_name_height solid $background;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-}
-
-.info-rectangle-player > .row {
-  height: $camera_name_height;
-  color: white;
+  font-size: 20px;
 }
 
 .info-content {
@@ -87,13 +69,37 @@ $background: #333333;
   border-right: $cut_width solid transparent;
 }
 
+.right-side {
+  height: $max_height !important;
+  position: relative;
+  background-color: transparent;
+  border-left: 5px solid $border_dark;
+  padding: 0px !important;
+}
+
+.info-rectangle-player {
+  left: 131px; // Camera width is 472px
+  bottom: 0px;
+  position: absolute;
+  width: 210px;
+  height: 0px;
+  border-bottom: $camera_name_height solid $background;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+}
+
+.info-rectangle-player > .row {
+  height: $camera_name_height;
+  color: white;
+}
+
 .camera {
   width: 100%;
   height: 300px;
   padding: 5px;
   margin: 0px;
   position: relative;
-  border-bottom: 5px solid $border_dark;
+  border-bottom: 5px solid $background;
 }
 
 .misc {
@@ -107,6 +113,7 @@ $background: #333333;
   bottom: 10px;
   color: white;
   width: 100%;
+  font-size: 16px;
 }
 
 .reverse {
