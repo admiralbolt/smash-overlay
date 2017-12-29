@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import io from 'socket.io-client';
 import materialize from 'materialize-css';
 import CharacterSelect from './character_select.jsx';
