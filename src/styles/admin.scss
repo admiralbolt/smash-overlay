@@ -32,3 +32,38 @@
 .update-button {
   background-color: $primary !important;
 }
+
+.section-header {
+  text-align: center;
+  align: center;
+  border-bottom: 1px solid #bbb;
+  color: #444444;
+  padding-bottom: 10px;
+}
+
+.tabs .indicator {
+  background-color: $primary !important;
+}
+
+.tabs .tab a:hover, .tabs .tab a.active {
+  color: $primary !important;
+}
+
+.tabs .tab a.active {
+  border-bottom: 1px solid $primary !important;
+}
+
+.tabs {
+  height: 100px !important;
+}
+
+.tabs .tab {
+  height: 100px !important;
+  line-height: 100px !important;
+}
+
+.tabs .tab a {
+  color: $primary !important;
+  font-size: 20px !important;
+  font-weight: bold;
+}
