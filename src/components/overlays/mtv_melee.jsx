@@ -92,6 +92,9 @@ export default class MTVMeleeOverlay extends React.Component {
             </div>
             <div className="misc">
 
+              <div>
+                <img className="gar" src="/public/images/smash_gar.png" />
+              </div>
               <div className="tourney-link center-align">
                 {this.state.overlay_info.tourney_link}
               </div>
