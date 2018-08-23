@@ -4,7 +4,7 @@
 $info_height: 60px;
 $camera_name_height: 34px;
 $cut_width: 50px;
-$header_margin: 216px;
+$header_margin: 110px;
 $background: #333333;
 
 /**
@@ -14,6 +14,7 @@ $background: #333333;
 .left-side {
   height: $max_height !important;
   position: relative;
+  width: 1256px !important;
 }
 
 .info-rectangle-bottom {
@@ -71,6 +72,7 @@ $background: #333333;
 
 .right-side {
   height: $max_height !important;
+  width: 654px !important;
   position: relative;
   background-color: transparent;
   border-left: 5px solid $border_dark;
@@ -95,16 +97,37 @@ $background: #333333;
 
 .camera {
   width: 100%;
-  height: 300px;
+  height: 400px;
   padding: 5px;
   margin: 0px;
   position: relative;
   border-bottom: 5px solid $background;
 }
 
+.black-box {
+  width: 100%;
+  padding: 5px;
+  margin: 0px;
+  position: relative;
+  background-color: $background;
+  overflow-y: visible;
+}
+
+.cam-height {
+  height: 50px;
+}
+
+.gar-height {
+  height: 550px;
+}
+
+.web-cam {
+  color: white;
+}
+
 .misc {
   background-color: $background;
-  height: 470px;
+  height: 70px;
   position: relative;
 }
 
