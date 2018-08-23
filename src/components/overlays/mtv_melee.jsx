@@ -10,12 +10,22 @@ export default class MTVMeleeOverlay extends React.Component {
     super(props);
     this.state = {
       overlay_info: props.overlay_info,
-      socket: io("/overlay_info")
+      socket: io("/overlay_info"),
+      rankings: {}
     };
   }
 
   componentDidMount() {
     var self = this;
+    fetch("https://cors-anywhere.herokuapp.com/https://www.garpr.com:3001/googlemtv/rankings")
+      .then(res => res.json())
+      .then((result) => {
+        var ranking_map = {}
+        result["ranking"].forEach((rank_obj) => {
+          ranking_map[rank_obj.name.toLowerCase()] = rank_obj.rank
+        });
+        self.setState({rankings: ranking_map})
+      });
     this.state.socket.on('update_overlay', function(data) {
       self.setState({overlay_info: data});
     });
@@ -26,7 +36,8 @@ export default class MTVMeleeOverlay extends React.Component {
     const right_character = this.state.overlay_info.right_character.split("/")[4];
     const left_facing = character_data[left_character].facing;
     const right_facing = character_data[right_character].facing;
-    console.log("left_facing: " + left_facing + ", right_facing: " + right_facing);
+    const left_ranking = this.state.rankings[this.state.overlay_info.left_player.toLowerCase()] || -1;
+    const right_ranking = this.state.rankings[this.state.overlay_info.right_player.toLowerCase()] || -1;
 
     return (
       <div className="overlay-container">
@@ -40,6 +51,8 @@ export default class MTVMeleeOverlay extends React.Component {
                 </div>
                 <div className="col s6 center-align">
                   {this.state.overlay_info.left_player}
+
+                  {(left_ranking != -1) ? <div className="ranking">GarPR Rank: {left_ranking}</div> : ''}
                 </div>
                 <div className="col s3 right-align">
                   {this.state.overlay_info.left_score}
@@ -54,6 +67,8 @@ export default class MTVMeleeOverlay extends React.Component {
                 </div>
                 <div className="col s6 center-align">
                   {this.state.overlay_info.right_player}
+
+                  {(right_ranking != -1) ? <div className="ranking">GarPR Rank: {right_ranking}</div> : ''}
                 </div>
                 <div className="col s3 right-align">
                   <img className={(right_facing == 'right') ? 'reverse' : ''} src={this.state.overlay_info.right_character} />
@@ -87,6 +102,7 @@ export default class MTVMeleeOverlay extends React.Component {
               <div className="info-rectangle-player">
                 <div className="row valign-wrapper">
                   <div className="col s12 center-align">{this.state.overlay_info.right_player}</div>
+
                 </div>
               </div>
             </div>
