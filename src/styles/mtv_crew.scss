@@ -1,0 +1,93 @@
+/** OVERLAY BASE **/
+$max_height: 1070px;
+$border_dark: #262626;
+
+.current-player {
+  font-weight: bold;
+  color: white;
+  font-size: 24px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.total-stocks {
+  color: white;
+  font-size: 20px;
+}
+
+.overlay-container {
+  width: 1920px;
+  height: 1080px;
+  border: 5px solid $border_dark;
+  background-color: transparent;
+}
+/** END OVERLAY BASE **/
+
+$background: #333333;
+$info_height: 60px;
+$cut_width: 50px;
+$header_margin: 100px;
+
+.dubs-column {
+  background-color: $background;
+  height: $max_height !important;
+  position: relative;
+  padding: 0px !important;
+}
+
+.game {
+  background-color: transparent;
+  height: $max_height !important;
+  position: relative;
+}
+
+.col-info {
+  position: relative;
+  margin-top: 20px;
+  color: white;
+  width: 100%;
+  font-size: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #aaa;
+}
+
+.team-info {
+
+}
+
+.team-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.team-color-Red {
+  color: #ab2222;
+}
+
+.team-color-Blue {
+  color: #4692e4;
+}
+
+.team-color-Green p {
+  color: #00bb00;
+}
+
+.dubs-player {
+  font-size: 18px;
+  color: white;
+}
+
+.gar {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+.dubs-col-footer {
+  position: absolute;
+  bottom: 0px;
+}
+
+.tourney-link {
+  color: white;
+}
